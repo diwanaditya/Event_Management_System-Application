@@ -72,8 +72,8 @@ pip --version
 1. Clone the repository
 
 ```
-git clone https://github.com/diwanaditya/event-management-system.git
-cd event-management-system
+git clone https://github.com/diwanaditya/Event_Management_System-Application.git
+cd Event_Management_System-Application
 ```
 
 2. Create and activate virtual environment
