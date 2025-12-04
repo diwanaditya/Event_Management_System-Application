@@ -1,8 +1,17 @@
-from django.http import JsonResponse
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import (
+    EventViewSet,
+    UserProfileViewSet,
+    register_user,
+)
 
-def root_redirect(request):
-    return JsonResponse({
-        "message": "Welcome to Event Management API",
-        "documentation": "/api/",
-        "admin": "/admin/"
-    })
+# Router for ViewSets
+router = DefaultRouter()
+router.register(r'events', EventViewSet, basename='event')
+router.register(r'profiles', UserProfileViewSet, basename='profile')
+
+urlpatterns = [
+    path('auth/register/', register_user, name='register'),
+    path('', include(router.urls)),
+]
